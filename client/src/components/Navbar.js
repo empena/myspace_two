@@ -18,32 +18,56 @@ class Navbar extends React.Component {
 
 
   NavItems = () => {
-    const { auth: { user, handleLogout, }, location, } = this.props;
-    if (true){
+    const { auth: { user, handleLogout }} = this.props;
+    if (user){
       return(
-        <Menu.Item key="2">
+        <Menu
+        defaultSelectedKeys={['1']}
+        defaultOpenKeys={['sub1']}
+        mode="inline"
+        theme="dark"
+      >
+        <Menu.Item key="1">
+        {/* <HomeOutlined /> */}
+          <Link to='/'>
+            <span>Home</span>
+          </Link>
+        </Menu.Item>
+       <Menu.Item key="2" onClick={handleLogout}>
           {/* <LogoutOutlined /> */}
             <Link to='/logout'>
               <span>Logout</span>
             </Link>
         </Menu.Item>
+      </Menu>
       )
     } else {
       return(
-        <>
-          <Menu.Item key="3">
-            {/* <LoginOutlined /> */}
-              <Link to='/login'>
-                <span>Login</span>
-              </Link>
-          </Menu.Item>
-          <Menu.Item key="4">
-            {/* <UploadOutlined /> */}
-              <Link to='/register'>
-                <span>Register</span>
-              </Link>
-          </Menu.Item>
-          </>
+      <Menu
+        defaultSelectedKeys={['1']}
+        defaultOpenKeys={['sub1']}
+        mode="inline"
+        theme="dark"
+      >
+      <Menu.Item key="1">
+      {/* <HomeOutlined /> */}
+        <Link to='/'>
+          <span>Home</span>
+        </Link>
+      </Menu.Item>
+        <Menu.Item key="3">
+          {/* <LoginOutlined /> */}
+            <Link to='/login'>
+              <span>Login</span>
+            </Link>
+        </Menu.Item>
+        <Menu.Item key="4">
+          {/* <UploadOutlined /> */}
+            <Link to='/register'>
+              <span>Register</span>
+            </Link>
+        </Menu.Item>
+      </Menu>
       )
     }
     
@@ -52,25 +76,9 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <>
-        {/* <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
-          {React.createElement(this.state.collapsed ? DoubleRightOutlined : DoubleLeftOutlined)}
-        </Button> */}
-        <Menu
-          defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
-          mode="inline"
-          theme="dark"
-        >
-            <Menu.Item key="1">
-              {/* <HomeOutlined /> */}
-                <Link to='/'>
-                  <span>Home</span>
-                </Link>
-            </Menu.Item>
-          { this.NavItems()}
-        </Menu>
-   </>
+    <>
+    { this.NavItems()}
+    </>
     );
   }
 }

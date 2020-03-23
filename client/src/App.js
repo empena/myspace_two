@@ -4,7 +4,9 @@ import Navbar from './components/Navbar';
 import { Switch, Route } from 'react-router-dom';
 import Home from './components/Home'
 import { Layout } from 'antd';
-
+     {/* <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
+          {React.createElement(this.state.collapsed ? DoubleRightOutlined : DoubleLeftOutlined)}
+        </Button> */}
 
 const App = () => {
   const { Sider, Content } = Layout;
