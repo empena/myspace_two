@@ -18,14 +18,20 @@ const tailLayout = {
 };
 
 
-class Login extends React.Component {
-  state = { email:'', password:'', }
+class Register extends React.Component {
+  state = { email:'', password:'', passwordConfirmation:'' }
 
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const {email, password} = this.state;
+    const {email, password, passwordConfirmation} = this.state;
     this.props.auth.handleLogin({email, password}, this.props.history)
+    if (password === passwordConfirmation){
+    this.props.auth.handleRegister( {email, password, passwordConfirmation},
+    this.props.history )
+    } else {
+      alert('passwords do not match')
+    }
   };
 
   handleChange = (e) => {
@@ -35,7 +41,7 @@ class Login extends React.Component {
 
 
   render(){
-    const { email, password } = this.state;
+    const { email, password, passwordConfirmation } = this.state;
     return(
       <Form {...layout} onSubmit={this.handleSubmit}>
         <Form.Item 
@@ -59,7 +65,18 @@ class Login extends React.Component {
             placeholder="Password"
             onChange={this.handleChange}
           />
-      </Form.Item>
+        </Form.Item>
+        <Form.Item 
+        label="Password">
+          <Input.Password
+            label="Password"
+            name="passwordConfirmation"
+            value={passwordConfirmation}  
+            required
+            placeholder="Password"
+            onChange={this.handleChange}
+          />
+        </Form.Item>
 
       <Form.Item {...tailLayout}>
         <Button type="primary" htmlType="submit">
@@ -72,11 +89,11 @@ class Login extends React.Component {
 }
 
 
-export default class ConnectedLogin extends React.Component{
+export default class ConnectedRegister extends React.Component{
   render(){
     return(
       <AuthConsumer>
-        { auth => <Login {...this.props} auth={auth} />}
+        { auth => <Register {...this.props} auth={auth} />}
       </AuthConsumer>
     )
   }

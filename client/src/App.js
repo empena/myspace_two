@@ -4,6 +4,8 @@ import Navbar from './components/Navbar';
 import { Switch, Route } from 'react-router-dom';
 import Home from './components/Home'
 import { Layout } from 'antd';
+import Login from './components/Login';
+import Register from './components/Register';
 
 
 const App = () => {
@@ -24,9 +26,9 @@ const App = () => {
         >
           <Switch>
             <Route exact path='/' component={Home} />
-            {/* <Route exact path='/login' component={Login} />
+            <Route exact path='/login' component={Login} />
             <Route exact path='/register' component={Register} />
-            <Route component={NoMatch} /> */}
+            {/* <Route component={NoMatch} /> */}
           </Switch>
         </Content>
         </Layout>
