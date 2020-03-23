@@ -6,6 +6,7 @@ import Home from './components/Home'
 import { Layout } from 'antd';
 import Login from './components/Login';
 import Register from './components/Register';
+import NoMatch from './components/NoMatch';
 
 
 const App = () => {
@@ -28,7 +29,7 @@ const App = () => {
             <Route exact path='/' component={Home} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/register' component={Register} />
-            {/* <Route component={NoMatch} /> */}
+            <Route component={NoMatch} />
           </Switch>
         </Content>
         </Layout>
