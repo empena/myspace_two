@@ -1,0 +1,16 @@
+A user can view other users.
+
+A user can create posts
+
+BONUS
+A user can befriend other users. (like today with liked_cats)
+Top Friends
+Users can like posts.
+Users can comment on posts.
+
+
+rails g model Friend username avatar location
+
+rails g controller api/friends index update --skip-routes
+
+User has_many posts 
