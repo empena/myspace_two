@@ -29,11 +29,11 @@ export default class AuthProvider extends React.Component {
 
   handleLogout = () => {
     console.log("Logout Clicked")
-    // axios.delete('/api/auth/sign_out').then(res => {
-    //   this.setState( {user: null, } )
-    // }).catch(err => {
-    //   console.log(err)
-    // })
+    axios.delete('/api/auth/sign_out').then(res => {
+      this.setState( {user: null, } )
+    }).catch(err => {
+      console.log(err)
+    })
   }
 
 

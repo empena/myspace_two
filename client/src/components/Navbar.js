@@ -21,7 +21,7 @@ class Navbar extends React.Component {
           </Link>
         </Menu.Item>
        <Menu.Item key="2" onClick={handleLogout}>
-            <Link to='/logout'>
+            <Link to='/'>
               <span>Logout</span>
             </Link>
         </Menu.Item>
