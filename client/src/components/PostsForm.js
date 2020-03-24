@@ -18,32 +18,33 @@ const tailLayout = {
 };
 
 
-class PostsForm extends React.Component {
+export default class PostsForm extends React.Component {
+
   state = {text:'',}
+
+  handleSubmit = () => {
+
+  }
+
+  handleChange = () => {
+
+  }
 
   render(){
     return(
-
-    )
-  }
-}
-
-
-
-<Form.Item name={['user', 'introduction']} label="Introduction">
-  <Input.TextArea />
-</Form.Item>
-
-
-<Form {...layout} onSubmit={this.handleSubmit}>
+      <Form {...layout} onSubmit={this.handleSubmit}>
         <Form.Item 
         label="Email">
-          <Input 
-            label="Email"
-            name="email"
-            value={email}
+          <Input.TextArea 
+            label="Post"
+            name="text"
+            value={text}
             required
-            placeholder="Email"
+            placeholder="Type Your Post Here"
             onChange={this.handleChange}
           />
         </Form.Item>
+      </Form>
+    )
+  }
+}
