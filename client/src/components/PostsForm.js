@@ -1,6 +1,5 @@
 import React from 'react';
 import { Form, Input, Button, } from 'antd';
-import {AuthConsumer} from '../providers/AuthProvider';
 
 const layout = {
   labelCol: {
@@ -12,7 +11,7 @@ const layout = {
 };
 const tailLayout = {
   wrapperCol: {
-    offset: 8,
+    offset: 2,
     span: 16,
   },
 };
@@ -22,21 +21,24 @@ export default class PostsForm extends React.Component {
 
   state = {text:'',}
 
-  handleSubmit = () => {
-
+  handleSubmit = (e) => {
+    e.preventDefault()
+    
   }
 
-  handleChange = () => {
-
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
   }
 
   render(){
+    const {text} = this.state
     return(
       <Form {...layout} onSubmit={this.handleSubmit}>
         <Form.Item 
-        label="Email">
+        label="Post">
           <Input.TextArea 
-            label="Post"
             name="text"
             value={text}
             required
@@ -44,6 +46,11 @@ export default class PostsForm extends React.Component {
             onChange={this.handleChange}
           />
         </Form.Item>
+        <Form.Item {...tailLayout}>
+        <Button type="primary" htmlType="submit">
+          Submit
+        </Button>
+      </Form.Item>
       </Form>
     )
   }
