@@ -8,6 +8,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import NoMatch from './components/NoMatch';
 import ConnectedFetchUser from './components/FetchUser';
+import ProtectedRoute from './components/ProtectedRoute';
 
 
 const App = () => {
@@ -29,7 +30,8 @@ const App = () => {
         >
           <ConnectedFetchUser>
           <Switch>
-            <Route exact path='/' component={Home} />
+            <ProtectedRoute exact path='/' component={Home}/>
+            {/* // <Route exact path='/' component={Home} /> */}
             <Route exact path='/login' component={Login} />
             <Route exact path='/register' component={Register} />
             <Route component={NoMatch} />
