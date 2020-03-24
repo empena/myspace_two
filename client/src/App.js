@@ -7,11 +7,13 @@ import { Layout } from 'antd';
 import Login from './components/Login';
 import Register from './components/Register';
 import NoMatch from './components/NoMatch';
+import ConnectedFetchUser from './components/FetchUser';
 
 
 const App = () => {
   const { Sider, Content } = Layout;
   return (
+    <>
     <Layout>
       <Sider>
       <Navbar />
@@ -25,15 +27,19 @@ const App = () => {
             minHeight: 880,
           }}
         >
+          <ConnectedFetchUser>
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/register' component={Register} />
             <Route component={NoMatch} />
           </Switch>
+          </ConnectedFetchUser>
         </Content>
         </Layout>
       </Layout>
+      
+      </>
   );
 }
 

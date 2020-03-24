@@ -6,6 +6,9 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom'
 import 'antd/dist/antd.css'
 import AuthProvider from './providers/AuthProvider';
+import { initMiddleware } from 'devise-axios'
+
+initMiddleware()
 
 ReactDOM.render(
   <AuthProvider>
