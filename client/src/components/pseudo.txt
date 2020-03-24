@@ -13,4 +13,9 @@ rails g model Friend username avatar location
 
 rails g controller api/friends index update --skip-routes
 
-User has_many posts 
+User has_many :posts 
+
+
+rails g model Post text:text user:belongs_to
+
+rails g controller api/posts index show new edit --skip-routes

@@ -20,6 +20,11 @@ class Navbar extends React.Component {
             <span>Home</span>
           </Link>
         </Menu.Item>
+        <Menu.Item key="5">
+          <Link to='/all_users'>
+            <span>Myspace Users</span>
+          </Link>
+        </Menu.Item>
        <Menu.Item key="2" onClick={handleLogout}>
             <Link to='/'>
               <span>Logout</span>
@@ -40,6 +45,11 @@ class Navbar extends React.Component {
           <span>Home</span>
         </Link>
       </Menu.Item>
+      <Menu.Item key="5">
+          <Link to='/all_users'>
+            <span>Myspace Users</span>
+          </Link>
+        </Menu.Item>
         <Menu.Item key="3">
             <Link to='/login'>
               <span>Login</span>

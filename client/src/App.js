@@ -2,14 +2,14 @@ import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import { Switch, Route } from 'react-router-dom';
-import Home from './components/Home'
+import AllUsers from './components/AllUsers'
 import { Layout } from 'antd';
 import Login from './components/Login';
 import Register from './components/Register';
 import NoMatch from './components/NoMatch';
 import ConnectedFetchUser from './components/FetchUser';
 import ProtectedRoute from './components/ProtectedRoute';
-
+import Home from './components/Home'
 
 const App = () => {
   const { Sider, Content } = Layout;
@@ -33,6 +33,7 @@ const App = () => {
             <ProtectedRoute exact path='/' component={Home}/>
             {/* // <Route exact path='/' component={Home} /> */}
             <Route exact path='/login' component={Login} />
+            <Route exact path='/all_users' component={AllUsers} />
             <Route exact path='/register' component={Register} />
             <Route component={NoMatch} />
           </Switch>
