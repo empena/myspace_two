@@ -1,21 +1,10 @@
 import React from 'react';
 import {AuthConsumer} from '../providers/AuthProvider';
-import { Menu, Button } from 'antd';
+import { Menu, Layout } from 'antd';
 import { Link, withRouter } from 'react-router-dom';
-import {
-  // LogoutOutlined,
-  // LoginOutlined,
-  // UploadOutlined,
-  // DoubleRightOutlined, 
-  // DoubleLeftOutlined,
-} from '@ant-design/icons';
 
 
 class Navbar extends React.Component {
-  state = {
-    collapsed: false,
-  };
-
 
   NavItems = () => {
     const { auth: { user, handleLogout }} = this.props;
@@ -23,18 +12,15 @@ class Navbar extends React.Component {
       return(
         <Menu
         defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
         mode="inline"
         theme="dark"
       >
         <Menu.Item key="1">
-        {/* <HomeOutlined /> */}
           <Link to='/'>
             <span>Home</span>
           </Link>
         </Menu.Item>
        <Menu.Item key="2" onClick={handleLogout}>
-          {/* <LogoutOutlined /> */}
             <Link to='/logout'>
               <span>Logout</span>
             </Link>
@@ -50,19 +36,16 @@ class Navbar extends React.Component {
         theme="dark"
       >
       <Menu.Item key="1">
-      {/* <HomeOutlined /> */}
         <Link to='/'>
           <span>Home</span>
         </Link>
       </Menu.Item>
         <Menu.Item key="3">
-          {/* <LoginOutlined /> */}
             <Link to='/login'>
               <span>Login</span>
             </Link>
         </Menu.Item>
         <Menu.Item key="4">
-          {/* <UploadOutlined /> */}
             <Link to='/register'>
               <span>Register</span>
             </Link>
@@ -77,7 +60,16 @@ class Navbar extends React.Component {
   render() {
     return (
     <>
+    <div className="logo">
+      <img src="https://a57.foxnews.com/a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2018/09/640/320/1862/1048/myspace.jpg?ve=1&tl=1?ve=1&tl=1" 
+      alt="myspace-logo" 
+      height="auto"
+      width="200"
+      />
+    </div>
+    <div >
     { this.NavItems()}
+    </div>
     </>
     );
   }
