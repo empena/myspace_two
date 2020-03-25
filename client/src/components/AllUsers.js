@@ -28,12 +28,12 @@ componentDidMount(){
      <div className="site-card-wrapper">
       <Row gutter={16}>
     { friends.map( friend => 
-      <Col span={8} >
+      <Col key={friend.id} span={8} >
           <Card
           hoverable
           style={{ width: 240 }}
           cover={<img alt="friend" src={friend.avatar} />}
-          key={friend.id}
+          
         >
           <Meta title={friend.username} description={friend.location}/>
         </Card>
@@ -47,4 +47,6 @@ componentDidMount(){
 }
 
 export default AllUsers
+
+
 
