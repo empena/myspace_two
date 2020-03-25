@@ -26,7 +26,7 @@ class ShowPosts extends Component {
     return (
       <>
       { posts.map( post => 
-        <div style={{...styles}}>
+        <div style={{...styles}} key={post.id}>
          <p>{post.text}</p> 
        </div>
         )}
@@ -38,5 +38,8 @@ class ShowPosts extends Component {
 export default ShowPosts;
 
 const styles = {
-  border: '1px solid black'
+  border: '1px solid lightgrey',
+  borderRadius: '4px',
+  margin: '26px',
+  padding: '20px',
 }

@@ -1,5 +1,4 @@
-A user can view other users.
-
+A user can view other users
 A user can create posts
 
 BONUS
