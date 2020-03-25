@@ -6,7 +6,3 @@
 end
 
 puts "150 Friends Seeded"
-
-# t.string "username"
-# t.string "avatar"
-# t.string "location"
