@@ -1,5 +1,7 @@
 import React from 'react';
 import { Form, Input, Button, } from 'antd';
+import Axios from 'axios'
+
 
 const layout = {
   labelCol: {
@@ -22,7 +24,18 @@ export default class PostsForm extends React.Component {
   state = {text:'',}
 
   handleSubmit = (e) => {
+    const id = this.props.id
+    const newPost = {...this.state}
     e.preventDefault()
+    Axios.post(`/api/users/${id}/posts`, newPost)
+    .then(res => {
+      console.log(res)
+      this.setState({
+        text: ''
+      });
+    }).catch(err => {
+      console.log(err)
+    })
     
   }
 

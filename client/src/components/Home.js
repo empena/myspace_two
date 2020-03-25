@@ -18,7 +18,7 @@ class Home extends Component {
         <br />
         <hr />
         <br />
-        <PostsForm />
+        <PostsForm id={user}/>
         <hr />
         <h2>Your Posts:</h2>
         <ShowPosts id={user}/>

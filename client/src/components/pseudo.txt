@@ -19,3 +19,7 @@ User has_many :posts
 rails g model Post text:text user:belongs_to
 
 rails g controller api/posts index show new edit --skip-routes
+
+
+** For posting on other people's pages - there is a string of the username in auth props. 
+Could use this to display the username with the post. 
