@@ -5,8 +5,4 @@
   Friend.create(username: username, location: location, avatar: avatar)
 end
 
-puts "150 Friends Seeded
-
-# t.string "username"
-# t.string "avatar"
-# t.string "location"
+puts "150 Friends Seeded"
