@@ -5,7 +5,6 @@
   Friend.create(username: username, location: location, avatar: avatar)
 end
 
-<<<<<<< HEAD
+
 puts "150 Friends Seeded"
-=======
->>>>>>> 45a36101b152732cd614d024a94062f542e22051
+
