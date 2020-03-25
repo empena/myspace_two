@@ -37,7 +37,7 @@ export default class PostsForm extends React.Component {
     return(
       <Form {...layout} onSubmit={this.handleSubmit}>
         <Form.Item 
-        label="Post">
+        label="New Post">
           <Input.TextArea 
             name="text"
             value={text}

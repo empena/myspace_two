@@ -1,6 +1,6 @@
 import React from 'react';
 import {AuthConsumer} from '../providers/AuthProvider';
-import { Menu, Layout } from 'antd';
+import { Menu } from 'antd';
 import { Link, withRouter } from 'react-router-dom';
 
 

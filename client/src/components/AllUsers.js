@@ -23,7 +23,7 @@ componentDidMount(){
 
  render(){
    const {friends} = this.state
-
+  
    return(
      <div className="site-card-wrapper">
       <Row gutter={16}>
@@ -32,7 +32,8 @@ componentDidMount(){
           <Card
           hoverable
           style={{ width: 240 }}
-          cover={<img alt="friend photo" src={friend.avatar} />}
+          cover={<img alt="friend" src={friend.avatar} />}
+          key={friend.id}
         >
           <Meta title={friend.username} description={friend.location}/>
         </Card>

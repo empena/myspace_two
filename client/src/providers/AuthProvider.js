@@ -36,6 +36,9 @@ export default class AuthProvider extends React.Component {
     })
   }
 
+  showUser = () => {
+    console.log(this.state.user)
+  }
 
   render(){
     return(

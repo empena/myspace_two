@@ -13,6 +13,7 @@ import Home from './components/Home'
 
 const App = () => {
   const { Sider, Content } = Layout;
+
   return (
     <>
     <Layout>
@@ -31,7 +32,6 @@ const App = () => {
           <ConnectedFetchUser>
           <Switch>
             <ProtectedRoute exact path='/' component={Home}/>
-            {/* // <Route exact path='/' component={Home} /> */}
             <Route exact path='/login' component={Login} />
             <Route exact path='/all_users' component={AllUsers} />
             <Route exact path='/register' component={Register} />
