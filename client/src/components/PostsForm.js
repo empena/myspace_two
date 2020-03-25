@@ -1,62 +1,73 @@
 import React from 'react';
 import { Form, Input, Button, } from 'antd';
-import Axios from 'axios'
+import axios from 'axios'
+import {useFormInput, } from '../hooks/useFormInput'
 
+const PostForm = (props) => {
 
-const layout = {
-  labelCol: {
-    span: 2,
-  },
-  wrapperCol: {
-    span: 16,
-  },
-};
-const tailLayout = {
-  wrapperCol: {
-    offset: 2,
-    span: 16,
-  },
-};
+  const text = useFormInput('')
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post("/api/users/id/posts", { text: text.value })
+      .then(res => {
+        props.add(res.data);
+        props.toggleForm();
+        // props.id();
+      })
+  }
 
-export default class PostsForm extends React.Component {
+  const layout = {
+    labelCol: {
+      span: 2,
+    },
+    wrapperCol: {
+      span: 16,
+    },
+  };
+  const tailLayout = {
+    wrapperCol: {
+      offset: 2,
+      span: 16,
+    },
+  };
+  
 
-  state = {text:'',}
+// export default class PostsForm extends React.Component {
 
-  handleSubmit = (e) => {
-    const id = this.props.id
-    const newPost = {...this.state}
-    e.preventDefault()
-    Axios.post(`/api/users/${id}/posts`, newPost)
-    .then(res => {
-      console.log(res)
-      this.setState({
-        text: ''
-      });
-    }).catch(err => {
-      console.log(err)
-    })
+//   state = {text:'',}
+
+//   handleSubmit = (e) => {
+//     const id = this.props.id
+//     const newPost = {...this.state}
+//     e.preventDefault()
+//     Axios.post(`/api/users/id/posts`, newPost)
+//     .then(res => {
+//       console.log(res)
+//       this.setState({
+//         text: ''
+//       });
+//     }).catch(err => {
+//       console.log(err)
+//     })
     
-  }
+//   }
 
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
+//   handleChange = (e) => {
+//     this.setState({
+//       [e.target.name]: e.target.value
+//     })
+//   }
 
-  render(){
-    const {text} = this.state
     return(
-      <Form {...layout} onSubmit={this.handleSubmit}>
+      <Form {...layout} onSubmit={handleSubmit}>
         <Form.Item 
         label="New Post">
           <Input.TextArea 
             name="text"
-            value={text}
             required
             placeholder="Type Your Post Here"
-            onChange={this.handleChange}
+            { ...text }
           />
         </Form.Item>
         <Form.Item {...tailLayout}>
@@ -66,5 +77,9 @@ export default class PostsForm extends React.Component {
       </Form.Item>
       </Form>
     )
-  }
 }
+
+export default PostForm
+
+
+

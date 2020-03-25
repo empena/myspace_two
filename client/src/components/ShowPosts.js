@@ -1,6 +1,7 @@
 import React, { useState, useEffect,} from 'react';
 import { Segment, List } from 'semantic-ui-react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 const ShowPosts = (props) => {
 
@@ -14,7 +15,7 @@ const ShowPosts = (props) => {
   
   const renderPosts = () => {
     return posts.map( post => (
-      <Segment key={post.id}>
+      <Segment key={post.id} as={PostBox}>
       <List.Header as="h3">{post.text}</List.Header>
     </Segment>
     ))
@@ -31,9 +32,9 @@ const ShowPosts = (props) => {
 
 export default ShowPosts;
 
-// const styles = {
-//   border: '1px solid lightgrey',
-//   borderRadius: '4px',
-//   margin: '26px',
-//   padding: '20px',
-// }
+const PostBox = styled.div`
+  border: '1px solid lightgrey',
+  borderRadius: '4px',
+  margin: '26px',
+  padding: '20px',
+`;
